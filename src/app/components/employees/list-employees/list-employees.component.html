@@ -1,0 +1,32 @@
+
+<table class="table table-striped" *ngIf="employeeList">
+    <thead>
+        <tr>
+            <th style="width: 10%"></th>
+            <th style="width: 30%">Name</th>
+            <th style="width: 30%">Email</th>
+            <th style="width: 30%">Cellphone</th>
+            <th style="width: 10%"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let employee of employeeList;let index=index">
+            <td>{{index + 1}}</td>
+            <td>{{employee.firstName}} {{employee.lastName}}</td>
+            <td>{{employee.email}}</td>
+            <td>{{employee.phone}}</td>
+            <td style="white-space: nowrap">
+                <a (click)="viewEmployee(employee)" class="btn btn-sm btn-primary mr-1">Edit</a>
+                <button (click)="deleteUser(employee)" class="btn btn-sm btn-danger btn-delete-user" [disabled]="employee.isDeleting">
+                    <span *ngIf="employee.isDeleting" class="spinner-border spinner-border-sm"></span>
+                    <span *ngIf="!employee.isDeleting">Delete</span>
+                </button>
+            </td>
+        </tr>
+        <tr *ngIf="!employeeList">
+            <td colspan="4" class="text-center">
+                <span class="spinner-border spinner-border-lg align-center"></span>
+            </td>
+        </tr>
+    </tbody>
+</table>

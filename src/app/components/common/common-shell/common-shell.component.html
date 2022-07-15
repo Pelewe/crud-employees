@@ -1,0 +1,44 @@
+<nav class="navbar navbar-light bg-dark">
+  <div class="container">
+    <div class="row w-100">
+      <div class="col-sm-1 d-flex justify-content-center">
+        <span class="avatarDrop ms-5" [matMenuTriggerFor]="menu">
+          <img src="/assets/profile2.svg" alt="" style="width: 55px;height: 55px;border-radius: 50%;">
+        </span>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>Profile</button>
+        </mat-menu>
+      </div>
+      <div class="col-lg-4">
+        <div>
+          <input class="form-control form-control-lg" type="text" [formControl]="searchControl"
+            placeholder="Search for employee" aria-label=".form-control-lg example">
+        </div>
+      </div>
+      <!-- <div class="col-5">
+              <div class="input-group" >
+               <input id="table_filter" type="text" class="form-control" aria-label="Text input with segmented button dropdown" >
+               <div class="input-group-btn" >
+                <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ><span class="label-icon" >Category</span> <span class="caret" >&nbsp;</span></button>
+                <div class="dropdown-menu dropdown-menu-right" >
+                   <ul class="category_filters" >
+                    <li >
+                     <input class="cat_type category-input" data-label="All" id="all" value="" name="radios" type="radio" ><label for="all" >All</label>
+                    </li>
+                    <li >
+                     <input type="radio" name="radios" id="Design" value="Design" ><label class="category-label" for="Design" >Design</label>
+                    </li>
+                   </ul>
+                </div>
+               </div>
+              </div>
+      </div> -->
+      <div class="col-4">
+        <button type="button" class="btn btn-primary btn-newEmployee" (click)="newEmployee()"><span class="bi bi-plus">&nbsp;</span>New Employee</button>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
